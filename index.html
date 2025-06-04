@@ -1,29 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CondoGames.Net</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎮 CondoGames.Net</title>
+  <style>
+    /* Starry Background */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: white;
+      animation: moveStars 100s linear infinite;
+    }
+
+    @keyframes moveStars {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(100vh); }
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 {
+      color: white;
+      font-size: 24px;
+    }
+
+    nav .btn-group a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      padding: 8px 15px;
+      background: #27ae60;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav .btn-group a:hover {
+      background: #2ecc71;
+    }
+
+    /* Main Content */
+    .container {
+      margin-top: 60px;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
-  <nav class="nav-rounded">
-    <a href="/">Home</a>
-    <a href="/condorequestor.html">Condo Requester</a>
-    <a href="https://discord.gg/rblxcondo" target="_blank">Discord</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/uploads.html">Uploads</a>
-    <a href="/login.html">Login</a>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <!-- Add more stars as needed -->
+
+  <nav>
+    <h1>🎮 CondoGames.Net</h1>
+    <div class="btn-group">
+      <a href="https://discord.gg/rblxcondo" target="_blank">Join Our Discord</a>
+      <a href="/condorequestor.html">Condo Requester</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
   </nav>
 
-  <main class="main-content">
-    <h1>CondoGames.Net</h1>
-    <a href="https://your-latest-game-link.com" class="btn-main">Find Latest Upload</a>
-  </main>
+  <div class="container">
+    <h2>Welcome to 🎮 CondoGames.Net</h2>
+    <p>Your go-to place for the latest Roblox condos.</p>
+  </div>
 
   <footer>
-    © 2025 Condogames.net SL. All rights reserved.<br />
-    Designed by <a href="https://discord.com/users/your-discord-id" target="_blank">Saint.devv</a>
+    Designed by Saint.devv
   </footer>
 </body>
 </html>
