@@ -2,29 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FAQ - CondoGames.Net</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: 'Outfit', sans-serif;
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background-color: #050505;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .logo {
+      color: #0ff;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #ccc;
+      transition: color 0.2s ease-in-out;
+    }
+    nav a:hover {
+      color: #0ff;
+    }
+    .container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    h1 {
+      color: #0ff;
+      font-size: 2.2rem;
+    }
+    .faq-item {
+      margin-bottom: 2rem;
+    }
+    .faq-item h3 {
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    .faq-item p {
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
-  <nav class="nav-rounded">
-    <a href="/">Home</a>
-    <a href="/condorequestor.html">Condo Requester</a>
-    <a href="https://discord.gg/rblxcondo" target="_blank">Discord</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/uploads.html">Uploads</a>
-    <a href="/login.html">Login</a>
-  </nav>
+  <header>
+    <div class="logo">CondoGames.<span style="color:#0ff">Net</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="requestor.html">Condo Requester</a>
+      <a href="https://discord.gg/rblxcondo" target="_blank">Discord</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
 
-  <main class="main-content">
+  <main class="container">
     <h1>Frequently Asked Questions</h1>
-    <section>
-      <h3>Are your guys condos safe?</h3>
-      <p>Yes, totally safe. No viruses, no risks!</p>
 
-      <h3>Will this get me banned?</h3>
-      <p>Nope!</p>
-    </section>
-  </main>
-</body>
-</html>
+    <div class="faq-item">
+      <h3>❓ What is a condo game?</h3>
+      <p>Condo games are private Roblox games designed for social interaction and roleplay.</p>
+    </div>
 
+    <div class="faq-item">
+      <h3>🔒 Are condo games safe to use?</h3>
+      <p>We offer private uploads with security checks, but always use at your own risk.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>🚀 How fast do uploads happen?</h3>
+      <p>Usually within a few seconds after request — our
