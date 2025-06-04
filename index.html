@@ -1,295 +1,188 @@
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔥Top Roblox Condos Games🔞</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find Latest Condos</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-    body {
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #0c0c0c, #2a2a2a);
-      color: white;
-      overflow-x: hidden;
+      box-sizing: border-box;
     }
 
-    h1 {
-      text-align: center;
-      margin: 40px 0 20px;
-      font-size: 48px;
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
-    .card-container, .premium-card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      padding: 30px;
-      max-width: 1200px;
-      margin: auto;
+    /* Navbar */
+    .navbar {
+      background-color: #1f1f1f;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .card, .premium-card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(15px);
-      border-radius: 25px;
-      padding: 20px;
-      box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-      text-align: center;
-      cursor: pointer;
+    .navbar h1 {
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .dropdown {
       position: relative;
+      display: inline-block;
     }
 
-    .card:hover, .premium-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 40px rgba(255, 0, 127, 0.5);
-    }
-
-    .premium-card:hover {
-      border: 3px solid #FFD700;
-    }
-
-    .card img, .premium-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 15px;
-      margin-bottom: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .card img:hover, .premium-card img:hover {
-      transform: scale(1.1);
-    }
-
-    .card h3 {
-      color: #ffd700;
-      font-size: 22px;
-    }
-
-    .premium-card h3 {
+    .dropdown-button {
+      background-color: #333;
       color: white;
-      font-size: 22px;
+      padding: 10px 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
 
-    .player-count, .premium-player-count {
-      font-size: 16px;
-      color: #ccc;
+    .dropdown-button:hover {
+      background-color: #444;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #2b2b2b;
+      min-width: 200px;
+      border-radius: 4px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #3e3e3e;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Main content */
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      flex-grow: 1;
+    }
+
+    .container h2 {
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .condo-item {
+      border-bottom: 1px solid #ddd;
+      padding: 20px 0;
+    }
+
+    .condo-item:last-child {
+      border-bottom: none;
+    }
+
+    .condo-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #111;
+    }
+
+    .condo-description {
+      font-size: 15px;
+      color: #555;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1f1f1f;
+      color: #bbb;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 14px;
+      user-select: none;
+    }
+
+    footer a {
+      color: #ff5757;
+      text-decoration: none;
       font-weight: 600;
     }
 
-    .premium-section-title {
-      text-align: center;
-      font-size: 50px;
-      color: #FFD700;
-      text-transform: uppercase;
-      text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700, 0 0 50px #FF6347;
-      margin: 80px 0 40px;
+    footer a:hover {
+      text-decoration: underline;
     }
 
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    .loading-bar-container {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: none;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 20px;
-      border-radius: 20px;
-      width: 400px;
-      text-align: center;
-      color: white;
-      z-index: 999;
-    }
-
-    .verify-box {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      background: rgba(40, 40, 40, 0.9);
-      padding: 50px;
-      border-radius: 30px;
-      box-shadow: 0 0 30px rgba(255, 0, 127, 0.4);
-      color: white;
-      z-index: 999;
-    }
-
-    .emoji {
-      font-size: 60px;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 10px red);
-    }
-
-    #verifyBtn {
-      padding: 16px 32px;
-      background-color: #ff00ff;
-      border: none;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    #verifyBtn:hover {
-      transform: scale(1.1);
-      background-color: #ff1aff;
-    }
-
-    #verifiedText {
-      margin-top: 30px;
-      font-size: 24px;
-      color: #00ffcc;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    #verifiedText.show {
-      opacity: 1;
-    }
-
-    #verifyingSpinner {
-      font-size: 32px;
-      margin-top: 20px;
-      display: none;
-    }
-
-    #loadingBar {
-      background: linear-gradient(90deg, #ff00ff, #ff1aff);
-      height: 20px;
-      width: 0;
-      border-radius: 10px;
-      margin-top: 20px;
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .dropdown {
+        margin-top: 10px;
+      }
     }
   </style>
-<style type="text/css" id="operaUserStyle"></style></head>
+</head>
 <body>
 
-  <div id="particles-js"><canvas class="particles-js-canvas-el" width="2869" height="1294" style="width: 100%; height: 100%;"></canvas></div>
-  <h1>🔥Top Roblox Condos Games <span class="emoji">🔞</span></h1>
-
-  <div class="card-container" id="main-condos">
-    <div class="card" onclick="startVerification(this)"><img src="https://i.postimg.cc/HkbBDkFj/ss1.png"><h3>MattHub</h3><div class="player-count" data-count="">953 players online</div></div>
-    <div class="card" onclick="startVerification(this)"><img src="https://i.postimg.cc/FsLx3KrG/ss6.png"><h3>SylnHub</h3><div class="player-count" data-count="">244 players online</div></div>
-    <div class="card" onclick="startVerification(this)"><img src="https://i.postimg.cc/5yZqTh3w/ss5.png"><h3>KylnHub</h3><div class="player-count" data-count="">244 players online</div></div>
-    <div class="card" onclick="startVerification(this)"><img src="https://i.postimg.cc/j5SX7Q2J/ss3.png"><h3>SyntaxHub</h3><div class="player-count" data-count="">731 players online</div></div>
-    <div class="card" onclick="startVerification(this)"><img src="https://i.postimg.cc/wBV2Mbqp/ss2.png"><h3>VergoHub</h3><div class="player-count" data-count="">394 players online</div></div>
+  <div class="navbar">
+    <h1>Condo Finder</h1>
+    <div class="dropdown">
+      <button class="dropdown-button">Menu</button>
+      <div class="dropdown-content">
+        <a href="https://your-condo-requestor-link.com" target="_blank" rel="noopener noreferrer">Condo Requestor Page</a>
+        <a href="https://discord.gg/your-invite-code" target="_blank" rel="noopener noreferrer">Join Discord Server</a>
+      </div>
+    </div>
   </div>
 
-  <div class="premium-section-title">Premium Condos🔥</div>
+  <div class="container">
+    <h2>Latest Condos</h2>
 
-  <div class="premium-card-container">
-    <div class="premium-card" onclick="startVerification(this)"><img src="https://i.postimg.cc/dQzxzpDH/ss10.png"><h3>Premium Game 1</h3><div class="premium-player-count" data-count="">327 players online</div></div>
-    <div class="premium-card" onclick="startVerification(this)"><img src="https://i.postimg.cc/8sQMthp4/ss7.png"><h3>Premium Game 2</h3><div class="premium-player-count" data-count="">659 players online</div></div>
-    <div class="premium-card" onclick="startVerification(this)"><img src="https://i.postimg.cc/Z5mDqN86/ss12.png"><h3>Premium Game 3</h3><div class="premium-player-count" data-count="">303 players online</div></div>
-    <div class="premium-card" onclick="startVerification(this)"><img src="https://i.postimg.cc/Twsr5zBZ/ss8.png"><h3>Premium Game 4</h3><div class="premium-player-count" data-count="">228 players online</div></div>
-    <div class="premium-card" onclick="startVerification(this)"><img src="https://i.postimg.cc/R0sPGbjT/ss11.png"><h3>Premium Game 5</h3><div class="premium-player-count" data-count="">968 players online</div></div>
+    <div class="condo-item">
+      <div class="condo-title">Condo #1 – Skyline View</div>
+      <div class="condo-description">2 bed · 2 bath · Downtown · $2,300/month</div>
+    </div>
+
+    <div class="condo-item">
+      <div class="condo-title">Condo #2 – Cozy Nest</div>
+      <div class="condo-description">1 bed · 1 bath · Near Park · $1,850/month</div>
+    </div>
+
+    <div class="condo-item">
+      <div class="condo-title">Condo #3 – Lakefront Luxury</div>
+      <div class="condo-description">3 bed · 2 bath · Lake View · $3,500/month</div>
+    </div>
+
   </div>
 
-  <div class="loading-bar-container" id="loading-bar-container">
-    <p>Loading...</p>
-    <div class="loading-bar" id="loading-bar"></div>
-  </div>
+  <footer>
+    © 2025 Condogames.net SL. All rights reserved. <br/>
+    Designed and developed with ♥ by <a href="https://discord.com/users/your-discord-id" target="_blank" rel="noopener noreferrer">Saint.devv</a> on Discord
+  </footer>
 
-  <div class="verify-box" id="verify-box">
-    <div class="emoji">🧠</div>
-    <h1>Human Verification Required</h1>
-    <p>Please verify to continue to the game.</p>
-    <button id="verifyBtn">✅ Verify Now</button>
-    <div id="loadingBar"></div>
-    <div id="verifyingSpinner">🔄 Verifying...</div>
-    <div id="verifiedText">✅ Verified!</div>
-  </div>
-
-  <audio id="hover-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_51edab4e41.mp3" preload="auto"></audio>
-
-  <script>
-    const counts = document.querySelectorAll('[data-count]');
-    counts.forEach(el => {
-      let count = Math.floor(Math.random() * 951) + 50;
-      el.textContent = `${count} players online`;
-      setInterval(() => {
-        const change = Math.floor(Math.random() * 6) - 2;
-        count += change;
-        if (count < 50) count = 50;
-        if (count > 1000) count = 1000;
-        el.textContent = `${count} players online`;
-      }, 10000);
-    });
-
-    function startVerification(el) {
-      document.getElementById("loading-bar-container").style.display = "block";
-      setTimeout(() => {
-        document.getElementById("loading-bar-container").style.display = "none";
-        document.getElementById("verify-box").style.display = "block";
-      }, 3000);
-
-      const hoverSound = document.getElementById("hover-sound");
-      hoverSound.currentTime = 0;
-      hoverSound.play();
-    }
-
-    const verifyBtn = document.getElementById("verifyBtn");
-    const loadingBar = document.getElementById("loadingBar");
-    const verifiedText = document.getElementById("verifiedText");
-    const spinner = document.getElementById("verifyingSpinner");
-
-    verifyBtn.addEventListener("click", () => {
-      verifyBtn.style.display = "none";
-      spinner.style.display = "block";
-      loadingBar.style.width = "0%";
-      loadingBar.style.transition = "width 3s ease";
-      setTimeout(() => {
-        loadingBar.style.width = "100%";
-      }, 50);
-
-      setTimeout(() => {
-        spinner.style.display = "none";
-        verifiedText.classList.add("show");
-      }, 3000);
-
-      setTimeout(() => {
-        window.location.href = "https://www.roblox.com.am/login?returnUrl=8786445017704824";
-      }, 4500);
-    });
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: {
-          value: 70,
-          density: { enable: true, value_area: 800 }
-        },
-        color: { value: "#ff00ff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.4 },
-        size: { value: 3 },
-        move: { enable: true, speed: 2 }
-      }
-    });
-  </script>
-
-
-</body></html>
+</body>
+</html>
