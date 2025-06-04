@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CondoGames.Net - Condo Requestor</title>
+  <title>CondoGames.Net - FAQ</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -16,32 +16,33 @@
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="condorequestor.html" class="active">Condo Requestor</a></li>
+          <li><a href="faq.html" class="active">FAQ</a></li>
+          <li><a href="condorequestor.html">Condo Requestor</a></li>
           <li><a href="https://discord.gg/rblxcondo" target="_blank" rel="noopener noreferrer" class="discord-link">Discord</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container" style="padding: 80px 20px; max-width: 700px;">
-    <h1>Upload Your Condo Game</h1>
-    <p>Upload your `.rbxlx` game file. Once uploaded, you will be redirected to the game URL.</p>
+  <main class="container" style="padding: 80px 20px;">
+    <h1>Frequently Asked Questions</h1>
 
-    <form id="upload-form" style="margin-top: 30px;">
-      <label for="game-file" style="font-weight: 600;">Select a `.rbxlx` file to upload:</label><br />
-      <input
-        type="file"
-        id="game-file"
-        name="game-file"
-        accept=".rbxlx"
-        required
-        style="margin-top: 10px; margin-bottom: 20px;"
-      />
-      <button type="submit" class="btn" style="width: 100%; font-size: 1.2rem;">Upload Game</button>
-    </form>
+    <section class="faq-section">
+      <h2>What is CondoGames.Net?</h2>
+      <p>CondoGames.Net is your go-to platform for discovering, generating, and requesting public Roblox condos.</p>
 
-    <div id="status" style="margin-top: 20px; font-weight: 600;"></div>
+      <h2>How do I find the latest uploads?</h2>
+      <p>Visit the <a href="index.html">home page</a> and click the "Find Latest Upload" button to visit Roblox’s official website for the newest condos.</p>
+
+      <h2>How can I request a condo?</h2>
+      <p>You can generate or request a condo by clicking the "Generate a Condo" button on the home page or by visiting the <a href="condorequestor.html">Condo Requestor</a> page.</p>
+
+      <h2>Are the condos public?</h2>
+      <p>Yes, all condos listed or generated here are public for you to explore.</p>
+
+      <h2>Who can I contact for support?</h2>
+      <p>For support, please use the contact information or request form on the Condo Requestor page.</p>
+    </section>
   </main>
 
   <footer>
@@ -49,47 +50,5 @@
       <p>&copy; 2025 CondoGames.Net. All rights reserved.</p>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('upload-form').addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const fileInput = document.getElementById('game-file');
-      const statusDiv = document.getElementById('status');
-
-      if (!fileInput.files.length) {
-        statusDiv.textContent = 'Please select a file before uploading.';
-        statusDiv.style.color = 'red';
-        return;
-      }
-
-      const file = fileInput.files[0];
-
-      // Show uploading status
-      statusDiv.textContent = 'Uploading... Please wait.';
-      statusDiv.style.color = '#007bff';
-
-      try {
-        // Example: simulate file upload delay
-        // Replace this with real upload logic using your backend or a 3rd party API
-        await new Promise((resolve) => setTimeout(resolve, 3000));
-
-        // Simulate getting back a game URL after upload
-        // Replace this URL with the real returned URL from your upload backend
-        const uploadedGameUrl = "https://www.roblox.com/games/1234567890/Uploaded-Condo-Game";
-
-        statusDiv.textContent = 'Upload successful! Redirecting to your game...';
-
-        // Redirect after a short delay so user sees message
-        setTimeout(() => {
-          window.location.href = uploadedGameUrl;
-        }, 1500);
-
-      } catch (error) {
-        statusDiv.textContent = 'Upload failed. Please try again.';
-        statusDiv.style.color = 'red';
-      }
-    });
-  </script>
 </body>
 </html>
