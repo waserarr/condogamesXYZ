@@ -1,85 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FAQ - CondoGames.Net</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    body {
-      margin: 0;
-      background-color: #000;
-      font-family: 'Outfit', sans-serif;
-      color: white;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 2rem;
-      background-color: #050505;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    .logo {
-      color: #0ff;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #ccc;
-      transition: color 0.2s ease-in-out;
-    }
-    nav a:hover {
-      color: #0ff;
-    }
-    .container {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-    }
-    h1 {
-      color: #0ff;
-      font-size: 2.2rem;
-    }
-    .faq-item {
-      margin-bottom: 2rem;
-    }
-    .faq-item h3 {
-      margin-bottom: 0.5rem;
-      color: white;
-    }
-    .faq-item p {
-      color: #ccc;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FAQ - CondoGames.Net</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <div class="logo">CondoGames.<span style="color:#0ff">Net</span></div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="requestor.html">Condo Requester</a>
-      <a href="https://discord.gg/rblxcondo" target="_blank">Discord</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
-  </header>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">CondoGames.Net</a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="faq.html" class="active">FAQ</a></li>
+                    <li><a href="condorequestor.html">Condo Requestor</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main class="container">
-    <h1>Frequently Asked Questions</h1>
+    <main>
+        <section class="faq-section container">
+            <h1>Frequently Asked Questions</h1>
 
-    <div class="faq-item">
-      <h3>❓ What is a condo game?</h3>
-      <p>Condo games are private Roblox games designed for social interaction and roleplay.</p>
-    </div>
+            <div class="faq-item">
+                <h3>What is CondoGames.Net?</h3>
+                <p>CondoGames.Net is a platform for sharing and playing Roblox condo games with a focus on uptime and community support.</p>
+            </div>
 
-    <div class="faq-item">
-      <h3>🔒 Are condo games safe to use?</h3>
-      <p>We offer private uploads with security checks, but always use at your own risk.</p>
-    </div>
+            <div class="faq-item">
+                <h3>How do I upload a condo?</h3>
+                <p>You can upload your condo using our private upload service available after signing up.</p>
+            </div>
 
-    <div class="faq-item">
-      <h3>🚀 How fast do uploads happen?</h3>
-      <p>Usually within a few seconds after request — our
+            <div class="faq-item">
+                <h3>Is my data safe?</h3>
+                <p>Yes, we ensure 99.9% uptime and security for all uploads and user data.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I request a condo?</h3>
+                <p>Visit the Condo Requestor page and fill out the form to get started.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2025 CondoGames.Net. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
