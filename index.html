@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CondoGames.Net</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: 'Outfit', sans-serif;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background-color: #050505;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .logo {
+      color: #0ff;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #ccc;
+      transition: color 0.2s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #0ff;
+    }
+
+    .btn {
+      border: 1px solid #0ff;
+      background: none;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      color: #0ff;
+      cursor: pointer;
+      margin-left: 0.5rem;
+    }
+
+    .btn:hover {
+      background-color: #0ff;
+      color: black;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: white;
+    }
+
+    .hero h1 span {
+      color: #0ff;
+    }
+
+    .hero p {
+      margin-top: 0.5rem;
+      color: #ccc;
+      font-size: 1.1rem;
+    }
+
+    .actions {
+      margin-top: 2rem;
+    }
+
+    .actions .btn {
+      margin: 0 0.5rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      color: #0ff;
+    }
+
+    .card {
+      background-color: #0a0a0a;
+      border: 1px solid #0ff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      max-width: 320px;
+      margin: 3rem auto;
+      text-align: left;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: white;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
+    .card a {
+      color: #0ff;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #444;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">CondoGames.<span style="color:#0ff">Net</span></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="requestor.html">Condo Requester</a>
+      <a href="https://discord.gg/rblxcondo" target="_blank">Discord</a>
+      <a href="faq.html">FAQ</a>
+      <button class="btn">Uploads</button>
+      <button class="btn">Login</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p style="color: #0ff; font-weight: 500;">💠 The Ultimate Condo Platform</p>
+      <h1>The <span>future</span> of condos.</h1>
+      <p>A platform that made finding condos easy.</p>
+
+      <div class="actions">
+        <button class="btn">Explore Games</button>
+        <button class="btn">Join Discord</button>
+      </div>
+
+      <div class="stats">
+        <div><strong>97K+</strong><br/><small>Active Users</small></div>
+        <div><strong>1340+</strong><br/><small>Daily Private Uploads</small></div>
+        <div><strong>99.9%</strong><br/><small>Uptime</small></div>
+        <div><strong>24/7</strong><br/><small>Support</small></div>
+      </div>
+    </section>
+
+    <div class="card">
+      <h3>🏠 Condo Generator</h3>
+      <p>You can easily generate a private condo game at our site and receive it in seconds.</p>
+      <a href="#">Generate a private condo →</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 CondoGames.Net — All rights reserved.
+  </footer>
+</body>
+</html>
 
