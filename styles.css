@@ -1,163 +1,201 @@
-/* General resets */
+/* Reset & base */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
-    color: #333333;
-    line-height: 1.6;
-    min-height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* Container */
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Header */
 header {
-    background-color: #ffffff;
-    border-bottom: 1px solid #dddddd;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  padding: 15px 0;
+  flex-shrink: 0;
 }
-
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
 .logo a {
-    font-weight: 700;
-    font-size: 1.8rem;
-    color: #555555;
-    text-decoration: none;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #222;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+nav ul li a {
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  color: #555;
+}
+nav ul li a.active,
+nav ul li a:hover {
+  background-color: #007bff;
+  color: #fff;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #555555;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links li a:hover,
-.nav-links li a.active {
-    color: #007bff;
-}
-
-/* Main content */
+/* Main */
 main {
-    padding: 40px 0;
+  flex-grow: 1;
 }
 
+/* Info section */
 .info-section {
-    text-align: center;
+  text-align: center;
+  padding: 80px 20px 60px;
+}
+.info-section h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #222;
 }
 
-.info-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #444444;
+/* Buttons group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
 }
-
-.info-section p {
-    font-size: 1.1rem;
-    color: #666666;
-    max-width: 650px;
-    margin: 0 auto 25px auto;
-}
-
 .btn {
-    display: inline-block;
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 12px 28px;
-    font-weight: 600;
-    border-radius: 5px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border: none;
-    font-size: 1rem;
+  display: inline-block;
+  font-weight: 600;
+  padding: 15px 45px;
+  font-size: 1.3rem;
+  border: none;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border-radius: 40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+  user-select: none;
+  min-width: 180px;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #0056b3;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+  outline: none;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
+/* Features section */
+.features-section {
+  max-width: 1100px;
+  margin: 0 auto 100px auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+.feature-box {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  padding: 30px 25px;
+  flex: 1 1 220px;
+  max-width: 250px;
+  text-align: center;
+  font-weight: 600;
+  color: #444;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+}
+.feature-box:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.feature-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  color: #007bff;
+  user-select: none;
 }
 
 /* Footer */
 footer {
-    background-color: #ffffff;
-    border-top: 1px solid #dddddd;
-    padding: 15px 20px;
-    text-align: center;
-    color: #777777;
-    font-size: 0.9rem;
+  background-color: #fff;
+  padding: 20px 0;
+  flex-shrink: 0;
+  box-shadow: 0 -1px 6px rgba(0,0,0,0.05);
+  text-align: center;
+}
+footer p {
+  color: #777777;
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  user-select: none;
 }
 
-/* Condo Requestor form styles */
-.requestor-section {
-    background-color: #ffffff;
-    padding: 30px 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    max-width: 600px;
-    margin: 0 auto;
+/* FAQ Section */
+.faq-section h2 {
+  margin-top: 30px;
+  color: #222;
+  font-weight: 600;
+}
+.faq-section p {
+  margin-top: 10px;
+  line-height: 1.5;
+  color: #444;
 }
 
-.requestor-section h1 {
-    margin-bottom: 20px;
-    color: #444444;
-    text-align: center;
-}
-
+/* Form styles */
 form label {
-    display: block;
-    margin: 15px 0 8px 0;
-    font-weight: 600;
-    color: #555555;
+  display: block;
+  margin-bottom: 8px;
 }
-
 form input[type="text"],
-form input[type="file"],
 form textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1.5px solid #cccccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #333333;
-    transition: border-color 0.3s ease;
-    font-family: inherit;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  resize: vertical;
+}
+form button.btn {
+  width: 100%;
+  font-size: 1.2rem;
 }
 
-form input[type="text"]:focus,
-form input[type="file"]:focus,
-form textarea:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-form textarea {
-    resize: vertical;
-}
-
-form button {
-    margin-top: 25px;
-    width: 100%;
-    font-weight: 700;
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .button-group {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .feature-box {
+    max-width: 100%;
+  }
 }
