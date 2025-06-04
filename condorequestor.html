@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Condo Requestor - CondoGames.Net</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">CondoGames.Net</a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="condorequestor.html" class="active">Condo Requestor</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="requestor-section container">
+            <h1>Request a Condo</h1>
+            <form action="#" method="POST" class="condo-form">
+                <label for="username">Roblox Username:</label>
+                <input type="text" id="username" name="username" required />
+
+                <label for="condo-link">Condo Link or Details:</label>
+                <textarea id="condo-link" name="condo-link" rows="4" required></textarea>
+
+                <label for="additional-info">Additional Information:</label>
+                <textarea id="additional-info" name="additional-info" rows="3" placeholder="Optional"></textarea>
+
+                <button type="submit" class="btn btn-primary">Submit Request</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2025 CondoGames.Net. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
