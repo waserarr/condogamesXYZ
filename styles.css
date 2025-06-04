@@ -199,3 +199,20 @@ form button.btn {
     max-width: 100%;
   }
 }
+
+/* Discord nav link style */
+.discord-link {
+  font-weight: 700;
+  color: #5865F2; /* Discord blurple */
+  border: 2px solid #5865F2;
+  padding: 6px 15px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.discord-link:hover,
+.discord-link:focus {
+  background-color: #5865F2;
+  color: white;
+  outline: none;
+}
+
