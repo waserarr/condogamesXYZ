@@ -1,118 +1,236 @@
-/* === GLOBAL === */
+/* Reset & Base */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: #000;
-  color: #fff;
-  font-family: 'Outfit', sans-serif;
-  line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+    color: #eee;
+    line-height: 1.6;
 }
 
-/* === HEADER === */
+a {
+    color: #ff3b3b;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Container */
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header */
 header {
-  background: #050505;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 2rem;
-  border-bottom: 1px solid #1a1a1a;
+    background-color: #2c0f0f;
+    padding: 1rem 0;
+    border-bottom: 2px solid #ff3b3b;
 }
 
-.logo {
-  color: #0ff;
-  font-weight: 700;
-  font-size: 1.4rem;
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav a {
-  color: #ccc;
-  margin-left: 1.5rem;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
+.logo a {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #ff3b3b;
+    letter-spacing: 1.5px;
 }
 
-nav a:hover {
-  color: #0ff;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
 }
 
-/* === MAIN CONTENT === */
-main.container {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 0 1.5rem;
+.nav-links li a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
-h1 {
-  font-size: 2.5rem;
-  color: #0ff;
-  margin-bottom: 1.5rem;
+.nav-links li a:hover,
+.nav-links li a.active {
+    background-color: #ff3b3b;
+    color: #fff;
 }
 
-h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.4rem;
+/* Stats Section */
+.stats-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 0;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
-p {
-  color: #ccc;
-  font-size: 1rem;
-  margin-bottom: 1rem;
+.stat-card {
+    flex: 1 1 150px;
+    background: #2c0f0f;
+    border: 2px solid #ff3b3b;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 0 8px rgba(255, 59, 59, 0.6);
 }
 
-/* === FORM === */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 2rem;
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff3b3b;
+    margin-bottom: 0.25rem;
 }
 
-input,
-textarea {
-  padding: 0.75rem;
-  background: #111;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
+.stat-label {
+    font-size: 1rem;
+    font-weight: 500;
 }
 
-input::placeholder,
-textarea::placeholder {
-  color: #666;
+/* Info Section */
+.info-section {
+    text-align: center;
+    margin-bottom: 4rem;
 }
 
-button {
-  padding: 0.8rem;
-  background: #0ff;
-  color: #000;
-  font-weight: 600;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background 0.2s ease;
+.info-section h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #ff3b3b;
 }
 
-button:hover {
-  background: #00dddd;
+.info-section p {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    font-size: 1.1rem;
+    color: #ccc;
 }
 
-/* === FAQ Styling === */
-.faq-item {
-  margin-bottom: 2.5rem;
+/* Buttons */
+.btn {
+    display: inline-block;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    user-select: none;
 }
 
-/* === FOOTER (if needed) === */
+.btn-primary {
+    background-color: #ff3b3b;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #cc2a2a;
+}
+
+/* Footer */
 footer {
-  text-align: center;
-  color: #666;
-  padding: 2rem 1rem;
-  font-size: 0.9rem;
-  border-top: 1px solid #1a1a1a;
-  background: #050505;
+    background-color: #2c0f0f;
+    padding: 1rem 0;
+    border-top: 2px solid #ff3b3b;
+    text-align: center;
+    color: #ff3b3b;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin: 3rem 0;
+}
+
+.faq-section h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #ff3b3b;
+}
+
+.faq-item {
+    background: #2c0f0f;
+    border: 2px solid #ff3b3b;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 8px rgba(255, 59, 59, 0.5);
+}
+
+.faq-item h3 {
+    margin-bottom: 0.75rem;
+    color: #ff3b3b;
+}
+
+/* Condo Requestor Form */
+.requestor-section {
+    margin: 3rem 0;
+}
+
+.requestor-section h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #ff3b3b;
+}
+
+.condo-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #2c0f0f;
+    border: 2px solid #ff3b3b;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 59, 59, 0.5);
+}
+
+.condo-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #ff3b3b;
+}
+
+.condo-form input[type="text"],
+.condo-form textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #1a1a1a;
+    color: #eee;
+    resize: vertical;
+}
+
+.condo-form input[type="text"]:focus,
+.condo-form textarea:focus {
+    outline: 2px solid #ff3b3b;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .stats-section {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 }
