@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Find Latest Condos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ROBLOX Condo Finder</title>
   <style>
     * {
       margin: 0;
@@ -12,9 +12,9 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f0f0f0;
-      color: #333;
+      color: #222;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -27,16 +27,48 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .navbar h1 {
       color: #fff;
-      font-size: 24px;
+      font-size: 28px;
+      flex-grow: 1;
+      user-select: none;
     }
 
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+
+    .btn-green {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-green:hover {
+      background-color: #219150;
+    }
+
+    /* Dropdown menu (optional) */
     .dropdown {
       position: relative;
       display: inline-block;
+      margin-left: 20px;
     }
 
     .dropdown-button {
@@ -45,8 +77,9 @@
       padding: 10px 16px;
       font-size: 16px;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
+      user-select: none;
     }
 
     .dropdown-button:hover {
@@ -58,16 +91,24 @@
       position: absolute;
       right: 0;
       background-color: #2b2b2b;
-      min-width: 200px;
-      border-radius: 4px;
-      z-index: 1;
+      min-width: 220px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 10;
     }
 
     .dropdown-content a {
       color: white;
-      padding: 12px 16px;
+      padding: 14px 18px;
       text-decoration: none;
       display: block;
+      font-weight: 500;
+      border-bottom: 1px solid #3a3a3a;
+      transition: background-color 0.2s ease;
+    }
+
+    .dropdown-content a:last-child {
+      border-bottom: none;
     }
 
     .dropdown-content a:hover {
@@ -82,37 +123,44 @@
     .container {
       max-width: 900px;
       margin: 40px auto;
-      padding: 30px;
+      padding: 30px 25px;
       background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 14px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       flex-grow: 1;
     }
 
     .container h2 {
-      margin-bottom: 20px;
-      color: #222;
+      margin-bottom: 25px;
+      color: #111;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
     .condo-item {
       border-bottom: 1px solid #ddd;
-      padding: 20px 0;
+      padding: 18px 0;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+      border-radius: 8px;
     }
 
-    .condo-item:last-child {
-      border-bottom: none;
+    .condo-item:hover {
+      background-color: #f9f9f9;
     }
 
     .condo-title {
       font-size: 20px;
-      font-weight: bold;
+      font-weight: 700;
+      color: #222;
       margin-bottom: 6px;
-      color: #111;
     }
 
     .condo-description {
       font-size: 15px;
       color: #555;
+      letter-spacing: 0.02em;
     }
 
     /* Footer */
@@ -123,10 +171,12 @@
       padding: 20px 10px;
       font-size: 14px;
       user-select: none;
+      margin-top: auto;
+      line-height: 1.4;
     }
 
     footer a {
-      color: #ff5757;
+      color: #27ae60;
       text-decoration: none;
       font-weight: 600;
     }
@@ -139,48 +189,54 @@
       .navbar {
         flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
+      }
+      .btn-group {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .btn-green {
+        flex: 1;
+        text-align: center;
       }
       .dropdown {
-        margin-top: 10px;
+        margin-left: 0;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="navbar">
-    <h1>Condo Finder</h1>
-    <div class="dropdown">
-      <button class="dropdown-button">Menu</button>
-      <div class="dropdown-content">
-        <a href="https://your-condo-requestor-link.com" target="_blank" rel="noopener noreferrer">Condo Requestor Page</a>
-        <a href="https://discord.gg/your-invite-code" target="_blank" rel="noopener noreferrer">Join Discord Server</a>
-      </div>
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <h1>ROBLOX Condo Finder</h1>
+    <div class="btn-group">
+      <a href="https://your-latest-game-link.com" target="_blank" rel="noopener noreferrer" class="btn-green" aria-label="Find Latest Game">Find Latest Game</a>
+      <a href="https://discord.gg/your-invite-code" target="_blank" rel="noopener noreferrer" class="btn-green" aria-label="Join Our Server">Join Our Server</a>
     </div>
-  </div>
+  </nav>
 
-  <div class="container">
-    <h2>Latest Condos</h2>
+  <main class="container" role="main">
+    <h2>Latest ROBLOX Condos</h2>
 
-    <div class="condo-item">
-      <div class="condo-title">Condo #1 – Skyline View</div>
-      <div class="condo-description">2 bed · 2 bath · Downtown · $2,300/month</div>
+    <div class="condo-item" tabindex="0" role="button" aria-pressed="false" onclick="window.open('https://www.roblox.com/games/123456789/Condo-One','_blank')" onkeypress="if(event.key==='Enter'){this.click()}">
+      <div class="condo-title">Condo #1 – Neon Nights</div>
+      <div class="condo-description">Fun and interactive 2 bedroom condo with neon vibes. Created by @BuilderX.</div>
     </div>
 
-    <div class="condo-item">
-      <div class="condo-title">Condo #2 – Cozy Nest</div>
-      <div class="condo-description">1 bed · 1 bath · Near Park · $1,850/month</div>
+    <div class="condo-item" tabindex="0" role="button" aria-pressed="false" onclick="window.open('https://www.roblox.com/games/987654321/Condo-Two','_blank')" onkeypress="if(event.key==='Enter'){this.click()}">
+      <div class="condo-title">Condo #2 – Cozy Hideout</div>
+      <div class="condo-description">Chill space with secret rooms and cozy decorations. Perfect for hangouts!</div>
     </div>
 
-    <div class="condo-item">
+    <div class="condo-item" tabindex="0" role="button" aria-pressed="false" onclick="window.open('https://www.roblox.com/games/192837465/Condo-Three','_blank')" onkeypress="if(event.key==='Enter'){this.click()}">
       <div class="condo-title">Condo #3 – Lakefront Luxury</div>
-      <div class="condo-description">3 bed · 2 bath · Lake View · $3,500/month</div>
+      <div class="condo-description">Luxury condo with stunning lake views and a game room included.</div>
     </div>
 
-  </div>
+  </main>
 
   <footer>
-    © 2025 Condogames.net SL. All rights reserved. <br/>
+    © 2025 Condogames.net SL. All rights reserved.<br />
     Designed and developed with ♥ by <a href="https://discord.com/users/your-discord-id" target="_blank" rel="noopener noreferrer">Saint.devv</a> on Discord
   </footer>
 
