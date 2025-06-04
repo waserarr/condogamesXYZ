@@ -18,24 +18,30 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="condorequestor.html" class="active">Condo Requestor</a></li>
+          <li><a href="https://discord.gg/rblxcondo" target="_blank" rel="noopener noreferrer" class="discord-link">Discord</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main class="container" style="padding: 80px 20px; max-width: 700px;">
-    <h1>Request a Public Condo</h1>
-    <p>Use the form below to submit a request to generate a public Roblox condo.</p>
+    <h1>Upload Your Condo Game</h1>
+    <p>Upload your `.rbxlx` game file. Once uploaded, you will be redirected to the game URL.</p>
 
-    <form action="#" method="POST" id="request-form" style="margin-top: 30px;">
-      <label for="username" style="font-weight: 600;">Your Roblox Username</label><br />
-      <input type="text" id="username" name="username" required placeholder="Enter your Roblox username" style="width: 100%; padding: 12px; margin-top: 8px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;" />
-
-      <label for="condo-details" style="font-weight: 600;">Condo Details / Description</label><br />
-      <textarea id="condo-details" name="condo-details" rows="6" required placeholder="Describe the condo you want to generate..." style="width: 100%; padding: 12px; margin-top: 8px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;"></textarea>
-
-      <button type="submit" class="btn" style="width: 100%; font-size: 1.2rem;">Submit Request</button>
+    <form id="upload-form" style="margin-top: 30px;">
+      <label for="game-file" style="font-weight: 600;">Select a `.rbxlx` file to upload:</label><br />
+      <input
+        type="file"
+        id="game-file"
+        name="game-file"
+        accept=".rbxlx"
+        required
+        style="margin-top: 10px; margin-bottom: 20px;"
+      />
+      <button type="submit" class="btn" style="width: 100%; font-size: 1.2rem;">Upload Game</button>
     </form>
+
+    <div id="status" style="margin-top: 20px; font-weight: 600;"></div>
   </main>
 
   <footer>
@@ -43,5 +49,47 @@
       <p>&copy; 2025 CondoGames.Net. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    document.getElementById('upload-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const fileInput = document.getElementById('game-file');
+      const statusDiv = document.getElementById('status');
+
+      if (!fileInput.files.length) {
+        statusDiv.textContent = 'Please select a file before uploading.';
+        statusDiv.style.color = 'red';
+        return;
+      }
+
+      const file = fileInput.files[0];
+
+      // Show uploading status
+      statusDiv.textContent = 'Uploading... Please wait.';
+      statusDiv.style.color = '#007bff';
+
+      try {
+        // Example: simulate file upload delay
+        // Replace this with real upload logic using your backend or a 3rd party API
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+
+        // Simulate getting back a game URL after upload
+        // Replace this URL with the real returned URL from your upload backend
+        const uploadedGameUrl = "https://www.roblox.com/games/1234567890/Uploaded-Condo-Game";
+
+        statusDiv.textContent = 'Upload successful! Redirecting to your game...';
+
+        // Redirect after a short delay so user sees message
+        setTimeout(() => {
+          window.location.href = uploadedGameUrl;
+        }, 1500);
+
+      } catch (error) {
+        statusDiv.textContent = 'Upload failed. Please try again.';
+        statusDiv.style.color = 'red';
+      }
+    });
+  </script>
 </body>
 </html>
