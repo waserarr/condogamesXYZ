@@ -4,98 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CondoGames.Net - Condo Requestor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="styles.css" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <div class="container header-container">
-      <div class="logo">
-        <a href="index.html">CondoGames.Net</a>
-      </div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="condorequestor.html" class="active">Condo Requestor</a></li>
-          <li><a href="https://discord.gg/rblxcondo" target="_blank" rel="noopener noreferrer" class="discord-link">Discord</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container" style="padding: 80px 20px; max-width: 700px;">
+  <main style="max-width: 700px; margin: 80px auto; padding: 0 20px;">
     <h1>Request a Condo Upload</h1>
-    <p>Enter your access key below to request the upload of the default condo game.</p>
+    <p>Enter your key to request the upload of your condo game.</p>
 
-    <form id="upload-form" style="margin-top: 30px;">
-      <label for="access-key" style="font-weight: 600;">Access Key:</label><br />
-      <input
-        type="text"
-        id="access-key"
-        name="access-key"
-        required
-        placeholder="Enter your access key"
-        style="margin-top: 10px; margin-bottom: 20px; width: 100%; padding: 8px; font-size: 1rem;"
-      />
+    <form id="upload-form">
+      <label for="key-input">Your Access Key:</label><br/>
+      <input type="text" id="key-input" name="key" required placeholder="Enter your key" style="width: 100%; padding: 10px; font-size: 1rem;" /><br/><br/>
 
-      <button type="submit" class="btn" style="width: 100%; font-size: 1.2rem;">Request Upload</button>
+      <button type="submit" style="width: 100%; padding: 12px; font-size: 1.2rem;">Request Upload</button>
     </form>
 
-    <div id="status" style="margin-top: 20px; font-weight: 600;"></div>
+    <div id="status" style="margin-top: 20px; font-weight: bold;"></div>
   </main>
 
-  <footer>
-    <div class="container footer-container">
-      <p>&copy; 2025 CondoGames.Net. All rights reserved.</p>
-    </div>
-  </footer>
-
   <script>
-    document.getElementById('upload-form').addEventListener('submit', async function (e) {
+    const form = document.getElementById('upload-form');
+    const statusDiv = document.getElementById('status');
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
-      const keyInput = document.getElementById('access-key');
-      const statusDiv = document.getElementById('status');
-
-      if (!keyInput.value.trim()) {
-        statusDiv.textContent = 'Please enter your access key.';
-        statusDiv.style.color = 'red';
+      const key = document.getElementById('key-input').value.trim();
+      if (!key) {
+        statusDiv.textContent = "Please enter your key.";
+        statusDiv.style.color = "red";
         return;
       }
 
-      const key = keyInput.value.trim();
-
-      statusDiv.textContent = 'Processing your request... Please wait.';
-      statusDiv.style.color = '#007bff';
+      statusDiv.textContent = "Uploading... please wait.";
+      statusDiv.style.color = "blue";
 
       try {
-        // Send access key only to backend API
-        const response = await fetch('https://your-backend.onrender.com/api/upload', {
+        const response = await fetch('https://your-render-backend-url/upload', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-API-SECRET': 'your_api_secret_here' // Replace with your backend secret key
-          },
-          body: JSON.stringify({ access_key: key })
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ key })
         });
 
-        const result = await response.json();
+        const data = await response.json();
 
-        if (response.ok && result.success) {
-          statusDiv.textContent = 'Upload successful! Redirecting to your game...';
-          statusDiv.style.color = 'green';
-
-          setTimeout(() => {
-            window.location.href = result.game_url || "https://www.roblox.com/games/1234567890/Uploaded-Condo-Game";
-          }, 1500);
-        } else {
-          statusDiv.textContent = `Request failed: ${result.error || result.message || 'Unknown error'}`;
-          statusDiv.style.color = 'red';
+        if (!response.ok) {
+          statusDiv.textContent = data.error || "Upload failed.";
+          statusDiv.style.color = "red";
+          return;
         }
-      } catch (error) {
-        statusDiv.textContent = 'Request failed. Please try again.';
-        statusDiv.style.color = 'red';
+
+        statusDiv.textContent = "Upload successful! Redirecting...";
+        statusDiv.style.color = "green";
+
+        setTimeout(() => {
+          window.location.href = data.game_url;
+        }, 1500);
+
+      } catch (err) {
+        statusDiv.textContent = "An error occurred. Please try again.";
+        statusDiv.style.color = "red";
       }
     });
   </script>
