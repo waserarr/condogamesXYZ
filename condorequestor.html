@@ -25,20 +25,21 @@
   </header>
 
   <main class="container" style="padding: 80px 20px; max-width: 700px;">
-    <h1>Upload Your Condo Game</h1>
-    <p>Upload your `.rbxlx` game file. Once uploaded, you will be redirected to the game URL.</p>
+    <h1>Request a Condo Upload</h1>
+    <p>Enter your access key below to request the upload of the default condo game.</p>
 
     <form id="upload-form" style="margin-top: 30px;">
-      <label for="game-file" style="font-weight: 600;">Select a `.rbxlx` file to upload:</label><br />
+      <label for="access-key" style="font-weight: 600;">Access Key:</label><br />
       <input
-        type="file"
-        id="game-file"
-        name="game-file"
-        accept=".rbxlx"
+        type="text"
+        id="access-key"
+        name="access-key"
         required
-        style="margin-top: 10px; margin-bottom: 20px;"
+        placeholder="Enter your access key"
+        style="margin-top: 10px; margin-bottom: 20px; width: 100%; padding: 8px; font-size: 1rem;"
       />
-      <button type="submit" class="btn" style="width: 100%; font-size: 1.2rem;">Upload Game</button>
+
+      <button type="submit" class="btn" style="width: 100%; font-size: 1.2rem;">Request Upload</button>
     </form>
 
     <div id="status" style="margin-top: 20px; font-weight: 600;"></div>
@@ -54,39 +55,46 @@
     document.getElementById('upload-form').addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      const fileInput = document.getElementById('game-file');
+      const keyInput = document.getElementById('access-key');
       const statusDiv = document.getElementById('status');
 
-      if (!fileInput.files.length) {
-        statusDiv.textContent = 'Please select a file before uploading.';
+      if (!keyInput.value.trim()) {
+        statusDiv.textContent = 'Please enter your access key.';
         statusDiv.style.color = 'red';
         return;
       }
 
-      const file = fileInput.files[0];
+      const key = keyInput.value.trim();
 
-      // Show uploading status
-      statusDiv.textContent = 'Uploading... Please wait.';
+      statusDiv.textContent = 'Processing your request... Please wait.';
       statusDiv.style.color = '#007bff';
 
       try {
-        // Example: simulate file upload delay
-        // Replace this with real upload logic using your backend or a 3rd party API
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        // Send access key only to backend API
+        const response = await fetch('https://your-backend.onrender.com/api/upload', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-API-SECRET': 'your_api_secret_here' // Replace with your backend secret key
+          },
+          body: JSON.stringify({ access_key: key })
+        });
 
-        // Simulate getting back a game URL after upload
-        // Replace this URL with the real returned URL from your upload backend
-        const uploadedGameUrl = "https://www.roblox.com/games/1234567890/Uploaded-Condo-Game";
+        const result = await response.json();
 
-        statusDiv.textContent = 'Upload successful! Redirecting to your game...';
+        if (response.ok && result.success) {
+          statusDiv.textContent = 'Upload successful! Redirecting to your game...';
+          statusDiv.style.color = 'green';
 
-        // Redirect after a short delay so user sees message
-        setTimeout(() => {
-          window.location.href = uploadedGameUrl;
-        }, 1500);
-
+          setTimeout(() => {
+            window.location.href = result.game_url || "https://www.roblox.com/games/1234567890/Uploaded-Condo-Game";
+          }, 1500);
+        } else {
+          statusDiv.textContent = `Request failed: ${result.error || result.message || 'Unknown error'}`;
+          statusDiv.style.color = 'red';
+        }
       } catch (error) {
-        statusDiv.textContent = 'Upload failed. Please try again.';
+        statusDiv.textContent = 'Request failed. Please try again.';
         statusDiv.style.color = 'red';
       }
     });
