@@ -2,10 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CondoGames.Net - Condo Requestor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header, footer {
+      background-color: #222;
+      color: white;
+      padding: 15px 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    header .logo a {
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+    nav ul {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+    }
+    nav ul li a {
+      color: #ddd;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav ul li a.active, nav ul li a:hover {
+      color: #007bff;
+    }
+    .btn {
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    main {
+      padding: 80px 0;
+    }
+    form label {
+      font-weight: 600;
+    }
+    input[type="text"] {
+      padding: 8px;
+      font-size: 1rem;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    fieldset {
+      border: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    legend {
+      font-weight: 600;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    label.radio-label {
+      display: block;
+      margin-bottom: 10px;
+      cursor: pointer;
+      font-size: 1.05rem;
+    }
+    label.radio-label input[type="radio"] {
+      margin-right: 10px;
+    }
+    #status {
+      font-weight: 600;
+      margin-top: 20px;
+      min-height: 24px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -24,21 +116,46 @@
     </div>
   </header>
 
-  <main class="container" style="padding: 80px 20px; max-width: 700px;">
+  <main class="container">
     <h1>Request a Condo Upload</h1>
-    <p>Enter your access key below to upload the default condo game. You must be logged in with Discord.</p>
+    <p>Enter your access key below and select a map to upload. You must be logged in with Discord.</p>
 
-    <div id="auth-section" style="margin: 20px 0;"></div>
+    <div id="auth-section" style="margin: 20px 0;">
+      <p>❌ You must be logged in with Discord.</p>
+      <a href="https://condogames-backend.onrender.com/login"><button class="btn">Login with Discord</button></a>
+    </div>
 
-    <form id="upload-form" style="display: none; margin-top: 30px;">
-      <label for="access-key" style="font-weight: 600;">Access Key:</label><br>
-      <input type="text" id="access-key" name="key" required placeholder="Enter your access key"
-        style="margin-top: 10px; margin-bottom: 20px; width: 100%; padding: 8px; font-size: 1rem;">
+    <form id="upload-form" style="display: none;">
+      <label for="access-key">Access Key:</label><br />
+      <input
+        type="text"
+        id="access-key"
+        name="key"
+        required
+        placeholder="Enter your access key"
+        autocomplete="off"
+      />
 
-      <button type="submit" class="btn" style="width: 100%; font-size: 1.2rem;">Request Upload</button>
+      <fieldset>
+        <legend>Select Map:</legend>
+        <label class="radio-label">
+          <input type="radio" name="map" value="game1.rbxl" required />
+          🏝 Island Map
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="map" value="game2.rbxl" required />
+          🪀 Club Map
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="map" value="game3.rbxl" required />
+          🚢 Boat Map
+        </label>
+      </fieldset>
+
+      <button type="submit" class="btn" style="width: 100%;">Generate Condo</button>
     </form>
 
-    <div id="status" style="margin-top: 20px; font-weight: 600;"></div>
+    <div id="status"></div>
   </main>
 
   <footer>
@@ -48,64 +165,83 @@
   </footer>
 
   <script>
-    const backendUrl = "https://condogames-backend.onrender.com"; 
+    const backendUrl = "https://condogames-backend.onrender.com";
 
     async function checkAuth() {
       try {
-        const res = await fetch(`${backendUrl}/@me`, { credentials: "include" });
+        const res = await fetch(`${backendUrl}/@me`, {
+          credentials: "include",
+        });
         if (res.ok) {
           const user = await res.json();
-          document.getElementById('auth-section').innerHTML = `
-            <p>✅ Logged in as <b>${user.username}#${user.discriminator}</b></p>
-            <a href="${backendUrl}/logout"><button class="btn">Logout</button></a>
-          `;
-          document.getElementById('upload-form').style.display = 'block';
+          document.getElementById(
+            "auth-section"
+          ).innerHTML = `<p>✅ Logged in as <b>${user.username}#${user.discriminator}</b></p>
+          <a href="${backendUrl}/logout"><button class="btn">Logout</button></a>`;
+          document.getElementById("upload-form").style.display = "block";
         } else {
-          throw new Error();
+          throw new Error("Not logged in");
         }
       } catch {
-        document.getElementById('auth-section').innerHTML = `
+        document.getElementById("auth-section").innerHTML = `
           <p>❌ You must be logged in with Discord.</p>
-          <a href="${backendUrl}/login"><button class="btn">Login with Discord</button></a>
-        `;
-        document.getElementById('upload-form').style.display = 'none';
+          <a href="${backendUrl}/login"><button class="btn">Login with Discord</button></a>`;
+        document.getElementById("upload-form").style.display = "none";
       }
     }
 
-    document.getElementById('upload-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
+    document
+      .getElementById("upload-form")
+      .addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-      const key = document.getElementById('access-key').value.trim();
-      const status = document.getElementById('status');
-      if (!key) return (status.textContent = "Please enter a key.");
+        const key = document.getElementById("access-key").value.trim();
+        const selectedMap = document.querySelector('input[name="map"]:checked');
+        const status = document.getElementById("status");
 
-      status.textContent = "Uploading...";
-
-      try {
-        const res = await fetch(`${backendUrl}/upload-condo`, {
-          method: "POST",
-          credentials: "include",
-          body: new URLSearchParams({ key }),
-        });
-
-        const result = await res.json();
-
-        if (res.ok && result.success) {
-          status.style.color = "green";
-          status.textContent = "✅ Upload successful! Redirecting...";
-          setTimeout(() => {
-            window.location.href = result.url;
-          }, 1500);
-        } else {
+        if (!key) {
           status.style.color = "red";
-          status.textContent = `❌ ${result.error || "Upload failed."}`;
+          status.textContent = "Please enter your access key.";
+          return;
         }
-      } catch (err) {
-        status.style.color = "red";
-        status.textContent = "❌ Server error.";
-      }
-    });
+        if (!selectedMap) {
+          status.style.color = "red";
+          status.textContent = "Please select a map.";
+          return;
+        }
 
+        status.style.color = "black";
+        status.textContent = "Uploading...";
+
+        try {
+          const res = await fetch(`${backendUrl}/upload-condo`, {
+            method: "POST",
+            credentials: "include",
+            body: new URLSearchParams({
+              key,
+              map: selectedMap.value,
+            }),
+          });
+
+          const result = await res.json();
+
+          if (res.ok && result.success) {
+            status.style.color = "green";
+            status.textContent = "✅ Upload successful! Redirecting...";
+            setTimeout(() => {
+              window.location.href = result.url;
+            }, 1500);
+          } else {
+            status.style.color = "red";
+            status.textContent = `❌ ${result.error || "Upload failed."}`;
+          }
+        } catch (err) {
+          status.style.color = "red";
+          status.textContent = "❌ Server error.";
+        }
+      });
+
+    // Check login status immediately on load
     checkAuth();
   </script>
 </body>
