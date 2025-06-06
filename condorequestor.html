@@ -4,7 +4,7 @@
   <title>CondoGames.Net - Condo Requestor</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-</head>
+<style type="text/css" id="operaUserStyle"></style></head>
 <body>
   <header>
     <div class="container header-container">
@@ -17,7 +17,6 @@
           <li><a href="/faq">FAQ</a></li>
           <li><a class="active" href="/condorequestor">Condo Requestor</a></li>
           <li><a href="https://discord.gg/rblxcondo" target="_blank" class="discord-link">Discord</a></li>
-          <li id="nav-auth-button"></li> <!-- Dynamic login/logout button -->
         </ul>
       </nav>
     </div>
@@ -28,26 +27,27 @@
     <p>Enter your access key below to upload the default condo game. You must be logged in with Discord.</p>
 
     <div id="auth-section" style="margin: 20px 0;">
-      <p>❌ You must be logged in with Discord.</p>
-      <a href="https://condogames-backend.onrender.com/login"><button class="btn">Login with Discord</button></a>
-    </div>
+          <p>❌ You must be logged in with Discord.</p>
+          <a href="https://condogames-backend.onrender.com/login"><button class="btn">Login with Discord</button></a>
+        </div>
 
     <form id="upload-form" style="display: none; margin-top: 30px;">
       <label for="access-key" style="font-weight: 600;">Access Key:</label><br>
-      <input type="text" id="access-key" name="key" required placeholder="Enter your access key" style="margin-top: 10px; margin-bottom: 20px; width: 100%; padding: 8px; font-size: 1rem;">
+      <input type="text" id="access-key" name="key" required="" placeholder="Enter your access key" style="margin-top: 10px; margin-bottom: 20px; width: 100%; padding: 8px; font-size: 1rem;">
 
+      <!-- ADD MAP OPTIONS HERE -->
       <fieldset style="margin-bottom: 20px;">
         <legend style="font-weight: 600; margin-bottom: 10px;">Select Map:</legend>
         <label style="display: block; margin-bottom: 10px; cursor: pointer;">
-          <input type="radio" name="map" value="game1.rbxl" required style="margin-right: 8px;">
+          <input type="radio" name="map" value="game1.rbxl" required="" style="margin-right: 8px;">
           🏝 Island Map
         </label>
         <label style="display: block; margin-bottom: 10px; cursor: pointer;">
-          <input type="radio" name="map" value="game2.rbxl" required style="margin-right: 8px;">
+          <input type="radio" name="map" value="game2.rbxl" required="" style="margin-right: 8px;">
           🪀 Club Map
         </label>
         <label style="display: block; margin-bottom: 10px; cursor: pointer;">
-          <input type="radio" name="map" value="game3.rbxl" required style="margin-right: 8px;">
+          <input type="radio" name="map" value="game3.rbxl" required="" style="margin-right: 8px;">
           🚢 Boat Map
         </label>
       </fieldset>
@@ -65,7 +65,7 @@
   </footer>
 
   <script>
-    const backendUrl = "https://condogames-backend.onrender.com";
+    const backendUrl = "https://condogames-backend.onrender.com"; 
 
     async function checkAuth() {
       try {
@@ -77,9 +77,6 @@
             <a href="${backendUrl}/logout"><button class="btn">Logout</button></a>
           `;
           document.getElementById('upload-form').style.display = 'block';
-          document.getElementById('nav-auth-button').innerHTML = `
-            <a href="${backendUrl}/logout"><button class="btn small">Logout</button></a>
-          `;
         } else {
           throw new Error();
         }
@@ -89,9 +86,6 @@
           <a href="${backendUrl}/login"><button class="btn">Login with Discord</button></a>
         `;
         document.getElementById('upload-form').style.display = 'none';
-        document.getElementById('nav-auth-button').innerHTML = `
-          <a href="${backendUrl}/login"><button class="btn small">Login</button></a>
-        `;
       }
     }
 
@@ -100,6 +94,7 @@
 
       const key = document.getElementById('access-key').value.trim();
       const status = document.getElementById('status');
+
       const selectedMap = document.querySelector('input[name="map"]:checked');
 
       if (!key) {
@@ -145,5 +140,7 @@
 
     checkAuth();
   </script>
-</body>
-</html>
+
+
+
+</body></html>
