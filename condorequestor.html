@@ -27,15 +27,14 @@
     <p>Enter your access key below to upload the default condo game. You must be logged in with Discord.</p>
 
     <div id="auth-section" style="margin: 20px 0;">
-          <p>❌ You must be logged in with Discord.</p>
-          <a href="https://condogames-backend.onrender.com/login"><button class="btn">Login with Discord</button></a>
-        </div>
+      <p>❌ You must be logged in with Discord.</p>
+      <a href="https://condogames-backend.onrender.com/login"><button class="btn">Login with Discord</button></a>
+    </div>
 
     <form id="upload-form" style="display: none; margin-top: 30px;">
       <label for="access-key" style="font-weight: 600;">Access Key:</label><br>
       <input type="text" id="access-key" name="key" required="" placeholder="Enter your access key" style="margin-top: 10px; margin-bottom: 20px; width: 100%; padding: 8px; font-size: 1rem;">
 
-      <!-- ADD MAP OPTIONS HERE -->
       <fieldset style="margin-bottom: 20px;">
         <legend style="font-weight: 600; margin-bottom: 10px;">Select Map:</legend>
         <label style="display: block; margin-bottom: 10px; cursor: pointer;">
@@ -94,7 +93,6 @@
 
       const key = document.getElementById('access-key').value.trim();
       const status = document.getElementById('status');
-
       const selectedMap = document.querySelector('input[name="map"]:checked');
 
       if (!key) {
@@ -139,8 +137,11 @@
     });
 
     checkAuth();
+
+    // ✅ Fix for post-login refresh
+    if (window.location.search.includes("status=success")) {
+      window.history.replaceState(null, "", window.location.pathname);
+      checkAuth(); // force recheck auth after Discord login
+    }
   </script>
-
-
-
 </body></html>
