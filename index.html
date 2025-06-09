@@ -1,23 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CondoGames.Net - Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <div class="container header-container">
       <div class="logo">
-        <a href="index.html">CondoGames.Net</a>
+        <a href="/">CondoGames.Net</a>
       </div>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="condorequestor.html">Condo Requestor</a></li>
+          <li><a class="active" href="/">Home</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/condorequestor">Condo Requestor</a></li>
           <li><a href="https://discord.gg/rblxcondo" target="_blank" rel="noopener noreferrer" class="discord-link">Discord</a></li>
         </ul>
       </nav>
@@ -28,8 +26,8 @@
     <section class="info-section container">
       <h1>Find Latest Upload</h1>
       <div class="button-group">
-        <a href="" target="_blank" rel="noopener noreferrer" class="btn">Find Latest Upload</a>
-        <a href="condorequestor.html" class="btn">Generate a Condo</a>
+        <a id="latest-upload-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn">Find Latest Upload</a>
+        <a class="btn" href="/condorequestor">Generate a Condo</a>
       </div>
     </section>
 
@@ -55,8 +53,29 @@
 
   <footer>
     <div class="container footer-container">
-      <p>&copy; 2025 CondoGames.Net. All rights reserved.</p>
+      <p>© 2025 CondoGames.Net. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Script to update the 'Find Latest Upload' button -->
+  <script>
+    fetch("https://condogames-backend.onrender.com/latest-upload")
+      .then(res => res.json())
+      .then(data => {
+        const btn = document.getElementById("latest-upload-btn");
+        if (data.url) {
+          btn.href = data.url;
+          btn.textContent = "🟢 Join Latest Upload";
+        } else {
+          btn.textContent = "❌ No Upload Available";
+          btn.classList.add("disabled");
+        }
+      })
+      .catch(() => {
+        const btn = document.getElementById("latest-upload-btn");
+        btn.textContent = "❌ Failed to Load";
+        btn.classList.add("disabled");
+      });
+  </script>
 </body>
 </html>
