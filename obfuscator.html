@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Obfuscator - CondoGames.Net</title>
+  <style>
+    body {
+      background-color: #0b0b0b;
+      color: #00ff99;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    .drop-zone {
+      border: 2px dashed #555;
+      padding: 30px;
+      width: 80%;
+      max-width: 800px;
+      text-align: center;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background-color: #111;
+    }
+    textarea {
+      width: 80%;
+      max-width: 800px;
+      height: 200px;
+      background: #111;
+      color: #0f0;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 30px;
+      font-weight: bold;
+      background: #7d2ae8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Obfuscator - CondoGames.Net</h1>
+
+  <div class="drop-zone" id="dropZone">Drop your .lua/.txt file here or paste below</div>
+  <textarea id="input" placeholder="Paste Lua code here..."></textarea>
+  <button onclick="obfuscate()">Obfuscate</button>
+  <textarea id="output" placeholder="Obfuscated result here..."></textarea>
+
+  <script>
+    function encodeLuaString(str) {
+      return str.split('').map(c => `\\${c.charCodeAt(0)}`).join('');
+    }
+
+    function obfuscate() {
+      const input = document.getElementById("input").value;
+      if (!input.trim()) return alert("Paste or drop Lua code first.");
+
+      let fullCode = `-- Obfuscated by CondoGames.Net\n` + input;
+      const encoded = encodeLuaString(fullCode);
+      const wrapped = `local _=[[${encoded}]] print(_)`;
+      document.getElementById("output").value = wrapped.replace(/\n/g, '').replace(/\s+/g, ' ');
+    }
+
+    // Drag & Drop support
+    const dropZone = document.getElementById("dropZone");
+    dropZone.addEventListener("dragover", e => {
+      e.preventDefault();
+      dropZone.style.borderColor = '#7d2ae8';
+    });
+    dropZone.addEventListener("dragleave", e => {
+      dropZone.style.borderColor = '#555';
+    });
+    dropZone.addEventListener("drop", e => {
+      e.preventDefault();
+      const file = e.dataTransfer.files[0];
+      if (file && file.type === "text/plain") {
+        const reader = new FileReader();
+        reader.onload = e => {
+          document.getElementById("input").value = e.target.result;
+        };
+        reader.readAsText(file);
+      } else {
+        alert("Please drop a .txt or .lua file");
+      }
+    });
+  </script>
+</body>
+</html>
