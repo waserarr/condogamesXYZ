@@ -1,73 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login - CondoGames.Net</title>
-  <style>
-    body {
-      margin: 0;
-      background: #fff;
-      color: #000;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .login-box {
-      background: #f1f1f1;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      text-align: center;
-    }
-    input {
-      padding: 10px;
-      width: 80%;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-    button {
-      padding: 10px 30px;
-      font-weight: bold;
-      background: #fff;
-      border: 2px solid #000;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .error {
-      color: red;
-      margin-top: 10px;
-    }
-  </style>
+  <title>Redirecting...</title>
+  <meta http-equiv="refresh" content="0;url=https://discord.gg/zdDqA5mTJu">
+  <script>
+    // Fallback in case meta refresh fails
+    window.location.href = "https://discord.gg/zdDqA5mTJu";
+  </script>
 </head>
 <body>
-  <div class="login-box">
-    <h2>Enter Access Code</h2>
-    <input type="text" id="keyInput" placeholder="Paste your key">
-    <br>
-    <button onclick="checkKey()">Login</button>
-    <div class="error" id="errorMsg"></div>
-  </div>
-
-  <script>
-    const validKeys = [
-      "B260546E-A99F-4781-8C22-09B7B5113A28",
-      "164F1E55-F384-41A7-B1D9-26E7DDE946A5",
-      "EA9E39E9-2923-45BB-ADC8-44CDF8FC10A1",
-      "0CC626D7-93CF-4B94-81B7-F12DC54E07D8",
-      "DA297219-CBBB-4DE7-ACF5-EEE90BF0CA0D"
-    ];
-
-    function checkKey() {
-      const key = document.getElementById('keyInput').value.trim().toUpperCase();
-      if (validKeys.includes(key)) {
-        window.location.href = "obfuscator.html";
-      } else {
-        document.getElementById("errorMsg").innerText = "Invalid key. Try again.";
-      }
-    }
-  </script>
+  <p>Redirecting to Discord...</p>
 </body>
 </html>
