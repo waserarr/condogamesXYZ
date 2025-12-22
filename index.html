@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join Our Discord</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://images-ext-1.discordapp.net/external/m7DzzDi5i7-XhtZQKNUMTV8aXgsfrT-pImrRR2UVluI/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1411676086013792319/7bfb371dd2067645e0802ebffc4986f4.png?format=webp&quality=lossless&width=1193&height=1193" type="image/png">
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -14,6 +17,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative;
         }
         .container {
             text-align: center;
@@ -51,17 +55,31 @@
             font-size: 14px;
             color: #999;
         }
+        /* Visitor counter corner positioning */
+        .visitor-counter {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 9999;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>Join Our Discord</h1>
-        <p>Be a part of our awesome condo community! Click below to join us on discord and play our condo games!</p>
+        <p>Be a part of our awesome condo community! Click below to join us on Discord and play our condo games!</p>
         <a href="https://discord.gg/qmHbxRreVT" target="_blank">
             <button class="join-btn">Join Discord</button>
         </a>
         <div class="footer">Made with ❤️ by Condo Empire</div>
+    </div>
+
+    <!-- Visitor counter in the corner -->
+    <div class="visitor-counter">
+        <a href='https://free-hit-counters.net/'>Free-Hit-Counters</a>
+        <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=b5ec4435f5419db2753464f84daab50dec994c4c'></script>
+        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1465274/t/1"></script>
     </div>
 
 </body>
