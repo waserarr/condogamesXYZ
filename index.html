@@ -6,87 +6,80 @@
     <title>Condo Empire</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="https://images-ext-1.discordapp.net/external/m7DzzDi5i7-XhtZQKNUMTV8aXgsfrT-pImrRR2UVluI/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1411676086013792319/7bfb371dd2067645e0802ebffc4986f4.png?format=webp&quality=lossless&width=1193&height=1193" type="image/png">
+    <link rel="icon" href="https://images-ext-1.discordapp.net/external/m7DzzDi5i7-XhtZQKNUMTV8aXgsfrT-pImrRR2UVluI/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1411676086013792319/7bfb371dd2067645e0802ebffc4986f4.png" type="image/png">
 
-    <!-- Open Graph / Discord Embed Preview -->
+    <!-- Discord / Embed Preview -->
     <meta property="og:title" content="🎮🍪 Future Of Condos..">
-    <meta property="og:description" content="Join Condo Empire, the condo server! Upload, play, and create custom condos with an active community. Average uptime: 1-3 hours.">
-    <meta property="og:image" content="https://images-ext-1.discordapp.net/external/m7DzzDi5i7-XhtZQKNUMTV8aXgsfrT-pImrRR2UVluI/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1411676086013792319/7bfb371dd2067645e0802ebffc4986f4.png?format=webp&quality=lossless&width=1193&height=1193">
-    <meta property="og:url" content="https://YOUR_WEBSITE_URL_HERE">
+    <meta property="og:description" content="Join Condo Empire, upload and play custom condos instantly.">
+    <meta property="og:image" content="https://images-ext-1.discordapp.net/external/m7DzzDi5i7-XhtZQKNUMTV8aXgsfrT-pImrRR2UVluI/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1411676086013792319/7bfb371dd2067645e0802ebffc4986f4.png">
     <meta property="og:type" content="website">
-
-    <!-- Optional Twitter Card (also used by Discord) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="🎮🍪 Future Of Condos..">
-    <meta name="twitter:description" content="Join Condo Empire, the premium condo server! Upload, play, and create custom condos with an active community. Average uptime: 1-3 hours.">
-    <meta name="twitter:image" content="https://images-ext-1.discordapp.net/external/m7DzzDi5i7-XhtZQKNUMTV8aXgsfrT-pImrRR2UVluI/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1411676086013792319/7bfb371dd2067645e0802ebffc4986f4.png?format=webp&quality=lossless&width=1193&height=1193">
 
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             background: #1f2a1f;
-            color: #fff;
+            color: white;
             margin: 0;
-            padding: 0;
         }
 
         header {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px 10px;
-            background-color: #111a11;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            padding: 20px;
+            background: #111a11;
         }
 
         header img {
             width: 50px;
-            height: 50px;
             margin-right: 15px;
         }
 
         header h1 {
-            font-size: 32px;
             color: #4CAF50;
             margin: 0;
         }
 
         .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 20px;
             text-align: center;
+            padding: 70px 20px;
             background: linear-gradient(145deg, #1a2b1a, #2b3c2b);
         }
 
         .hero h2 {
             font-size: 36px;
-            margin-bottom: 20px;
-            color: #fff;
         }
 
         .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
             max-width: 600px;
-        }
-
-        .join-btn {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 15px 40px;
+            margin: 20px auto;
             font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
         }
 
-        .join-btn:hover {
-            background-color: #45a049;
+        #upload-container {
+            margin-top: 35px;
+        }
+
+        #upload-text {
+            font-size: 22px;
+            letter-spacing: 1px;
+            color: #ccc;
+        }
+
+        #play-upload-btn {
+            background: #4CAF50;
+            color: white;
+            padding: 15px 45px;
+            font-size: 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        #play-upload-btn:hover {
+            background: #45a049;
+            transform: scale(1.05);
         }
 
         .features {
@@ -94,96 +87,83 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            padding: 40px 20px;
-            background-color: #111a11;
+            padding: 40px;
+            background: #111a11;
         }
 
         .feature-box {
-            background-color: #1f2a1f;
             border: 2px solid #4CAF50;
             border-radius: 12px;
             padding: 20px;
-            width: 200px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-        }
-
-        .feature-box h3 {
-            font-size: 20px;
-            color: #4CAF50;
-            margin-bottom: 10px;
-        }
-
-        .feature-box p {
-            font-size: 14px;
-            color: #ccc;
+            width: 220px;
+            background: #1f2a1f;
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #111a11;
-            font-size: 14px;
             color: #999;
-        }
-
-        /* Visitor counter corner positioning */
-        .visitor-counter {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            z-index: 9999;
+            background: #111a11;
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header>
-        <img src="https://images-ext-1.discordapp.net/external/m7DzzDi5i7-XhtZQKNUMTV8aXgsfrT-pImrRR2UVluI/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1411676086013792319/7bfb371dd2067645e0802ebffc4986f4.png?format=webp&quality=lossless&width=1193&height=1193" alt="Condo Empire Logo">
-        <h1>Condo Empire</h1>
-    </header>
+<header>
+    <img src="https://images-ext-1.discordapp.net/external/m7DzzDi5i7-XhtZQKNUMTV8aXgsfrT-pImrRR2UVluI/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1411676086013792319/7bfb371dd2067645e0802ebffc4986f4.png">
+    <h1>Condo Empire</h1>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>Welcome to Condo Empire!</h2>
-        <p>Join our condo server where you can upload, play, and create custom condos automatically. Experience an active community and average server uptime of 1-3 hours.</p>
-        <a href="https://discord.gg/qmHbxRreVT" class="join-btn" target="_blank">Join Discord</a>
-    </section>
+<section class="hero">
+    <h2>Welcome to Condo Empire</h2>
+    <p>Upload, play, and create condos automatically with an active community.</p>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="feature-box">
-            <h3>Fast Uploading</h3>
-            <p>Upload condos quickly without delays, perfect for instant fun!</p>
-        </div>
-        <div class="feature-box">
-            <h3>Automatic Condos</h3>
-            <p>Automatic generation of condos to save time and effort.</p>
-        </div>
-        <div class="feature-box">
-            <h3>Active Server</h3>
-            <p>Our server is always buzzing with players and activity.</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        Made with ❤️ by Condo Empire
-    </footer>
-
-    <!-- Visitor counter in the corner -->
-    <div class="visitor-counter">
-        <a href='https://free-hit-counters.net/'>Free-Hit-Counters</a>
-        <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=b5ec4435f5419db2753464f84daab50dec994c4c'></script>
-        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1465274/t/1"></script>
+    <div id="upload-container">
+        <span id="upload-text">Uploading.</span>
     </div>
+</section>
+
+<section class="features">
+    <div class="feature-box">
+        <h3>Fast Uploads</h3>
+        <p>Instant condo loading with no delays.</p>
+    </div>
+    <div class="feature-box">
+        <h3>Automatic Condos</h3>
+        <p>No setup needed — fully automated.</p>
+    </div>
+    <div class="feature-box">
+        <h3>Active Players</h3>
+        <p>Always active, always alive.</p>
+    </div>
+</section>
+
+<footer>
+    Made with ❤️ by Condo Empire
+</footer>
+
+<script>
+    const uploadText = document.getElementById("upload-text");
+    const container = document.getElementById("upload-container");
+
+    let dots = 1;
+    const loop = setInterval(() => {
+        dots = dots % 3 + 1;
+        uploadText.textContent = "Uploading" + ".".repeat(dots);
+    }, 500);
+
+    setTimeout(() => {
+        clearInterval(loop);
+        container.innerHTML = `
+            <a id="play-upload-btn"
+               href="https://www.roblox.com/games/75699289416815/Braetons-Hangout"
+               target="_blank">
+               ▶ Play Upload
+            </a>
+        `;
+    }, 3000);
+</script>
 
 </body>
 </html>
